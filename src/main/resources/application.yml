@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: farmacontrol
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/farmacontrol}
+    username: ${DB_USERNAME:farmacontrol}
+    password: ${DB_PASSWORD:farmacontrol}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

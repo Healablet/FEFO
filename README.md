@@ -23,6 +23,10 @@ Este primer incremento contiene el esqueleto Spring Boot, una comprobación de s
 
 La configuración local está en `compose.yaml`. La aplicación acepta `DB_URL`, `DB_USERNAME` y `DB_PASSWORD` como variables de entorno. Los valores incluidos son únicamente para desarrollo local; no uses credenciales reales en el repositorio.
 
+## Alertas de reorden
+
+`GET /api/medicamentos/alertas-reorden` devuelve los medicamentos cuyo stock actual es igual o menor al stock mínimo configurado. El stock actual se calcula sumando las cantidades registradas en lotes que vencen hoy o después; los lotes vencidos se excluyen y un medicamento sin lotes vigentes cuenta como stock cero. Como todavía no se registran dispensaciones ni salidas, las cantidades representan lo ingresado al crear los lotes.
+
 ## Trabajo por incrementos, ramas y commits
 
 Trabaja una tarea pequeña por rama y abre una solicitud de integración hacia `main` al terminarla. Ejemplos de ramas:

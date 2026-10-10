@@ -1,6 +1,7 @@
 package co.farmacontrol.medicamentos;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.validation.Valid;
@@ -26,6 +27,11 @@ public class MedicamentoController {
         return medicamentoRepository.findAll().stream()
                 .map(MedicamentoResponse::fromEntity)
                 .toList();
+    }
+
+    @GetMapping("/medicamentos/alertas-reorden")
+    public List<AlertaReordenResponse> listAlertasReorden() {
+        return medicamentoRepository.findAlertasReorden(LocalDate.now());
     }
 
     @PostMapping("/medicamentos")
